@@ -1,0 +1,11 @@
+C:\rustProject\Cross_domain\target\release\deps\socket2-45299207a8453f5a.d: C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\socket2-0.6.0\src\lib.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\socket2-0.6.0\src\sockaddr.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\socket2-0.6.0\src\socket.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\socket2-0.6.0\src\sockref.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\socket2-0.6.0\src\sys\windows.rs
+
+C:\rustProject\Cross_domain\target\release\deps\libsocket2-45299207a8453f5a.rlib: C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\socket2-0.6.0\src\lib.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\socket2-0.6.0\src\sockaddr.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\socket2-0.6.0\src\socket.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\socket2-0.6.0\src\sockref.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\socket2-0.6.0\src\sys\windows.rs
+
+C:\rustProject\Cross_domain\target\release\deps\libsocket2-45299207a8453f5a.rmeta: C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\socket2-0.6.0\src\lib.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\socket2-0.6.0\src\sockaddr.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\socket2-0.6.0\src\socket.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\socket2-0.6.0\src\sockref.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\socket2-0.6.0\src\sys\windows.rs
+
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\socket2-0.6.0\src\lib.rs:
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\socket2-0.6.0\src\sockaddr.rs:
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\socket2-0.6.0\src\socket.rs:
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\socket2-0.6.0\src\sockref.rs:
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\socket2-0.6.0\src\sys\windows.rs:

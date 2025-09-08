@@ -1,0 +1,11 @@
+C:\rustProject\Cross_domain\target\debug\deps\tower_layer-562bf17403e4f363.d: C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\tower-layer-0.3.3\src\lib.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\tower-layer-0.3.3\src\identity.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\tower-layer-0.3.3\src\layer_fn.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\tower-layer-0.3.3\src\stack.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\tower-layer-0.3.3\src\tuple.rs
+
+C:\rustProject\Cross_domain\target\debug\deps\libtower_layer-562bf17403e4f363.rlib: C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\tower-layer-0.3.3\src\lib.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\tower-layer-0.3.3\src\identity.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\tower-layer-0.3.3\src\layer_fn.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\tower-layer-0.3.3\src\stack.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\tower-layer-0.3.3\src\tuple.rs
+
+C:\rustProject\Cross_domain\target\debug\deps\libtower_layer-562bf17403e4f363.rmeta: C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\tower-layer-0.3.3\src\lib.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\tower-layer-0.3.3\src\identity.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\tower-layer-0.3.3\src\layer_fn.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\tower-layer-0.3.3\src\stack.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\tower-layer-0.3.3\src\tuple.rs
+
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\tower-layer-0.3.3\src\lib.rs:
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\tower-layer-0.3.3\src\identity.rs:
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\tower-layer-0.3.3\src\layer_fn.rs:
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\tower-layer-0.3.3\src\stack.rs:
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\tower-layer-0.3.3\src\tuple.rs:

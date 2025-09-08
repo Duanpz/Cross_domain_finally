@@ -1,0 +1,26 @@
+[package]
+name = "chuangshi-rmn"
+version.workspace = true
+edition.workspace = true
+
+[[bin]]
+name = "chuangshi-rmn"
+path = "src/main.rs"
+
+[dependencies]
+chuangshi-common = { path = "../chuangshi-common" }
+tokio.workspace = true
+tonic.workspace = true
+prost.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+bincode.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+anyhow.workspace = true
+clap.workspace = true
+uuid.workspace = true
+chrono.workspace = true
+dashmap.workspace = true
+async-trait.workspace = true
+bytes.workspace = true

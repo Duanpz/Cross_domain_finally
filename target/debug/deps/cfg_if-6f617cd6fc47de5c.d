@@ -1,0 +1,7 @@
+C:\rustProject\Cross_domain\target\debug\deps\cfg_if-6f617cd6fc47de5c.d: C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\cfg-if-1.0.3\src\lib.rs
+
+C:\rustProject\Cross_domain\target\debug\deps\libcfg_if-6f617cd6fc47de5c.rlib: C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\cfg-if-1.0.3\src\lib.rs
+
+C:\rustProject\Cross_domain\target\debug\deps\libcfg_if-6f617cd6fc47de5c.rmeta: C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\cfg-if-1.0.3\src\lib.rs
+
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\cfg-if-1.0.3\src\lib.rs:

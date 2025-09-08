@@ -1,0 +1,11 @@
+C:\rustProject\Cross_domain\target\debug\deps\prost-cad7bf8b59952107.d: C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\prost-0.12.6\src\lib.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\prost-0.12.6\src\error.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\prost-0.12.6\src\message.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\prost-0.12.6\src\name.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\prost-0.12.6\src\types.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\prost-0.12.6\src\encoding.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\prost-0.12.6\src\../README.md
+
+C:\rustProject\Cross_domain\target\debug\deps\libprost-cad7bf8b59952107.rmeta: C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\prost-0.12.6\src\lib.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\prost-0.12.6\src\error.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\prost-0.12.6\src\message.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\prost-0.12.6\src\name.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\prost-0.12.6\src\types.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\prost-0.12.6\src\encoding.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\prost-0.12.6\src\../README.md
+
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\prost-0.12.6\src\lib.rs:
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\prost-0.12.6\src\error.rs:
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\prost-0.12.6\src\message.rs:
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\prost-0.12.6\src\name.rs:
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\prost-0.12.6\src\types.rs:
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\prost-0.12.6\src\encoding.rs:
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\prost-0.12.6\src\../README.md:

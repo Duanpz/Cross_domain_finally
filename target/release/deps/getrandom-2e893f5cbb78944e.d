@@ -1,0 +1,11 @@
+C:\rustProject\Cross_domain\target\release\deps\getrandom-2e893f5cbb78944e.d: C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\getrandom-0.2.16\src\lib.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\getrandom-0.2.16\src\error.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\getrandom-0.2.16\src\util.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\getrandom-0.2.16\src\error_impls.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\getrandom-0.2.16\src\windows.rs
+
+C:\rustProject\Cross_domain\target\release\deps\libgetrandom-2e893f5cbb78944e.rlib: C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\getrandom-0.2.16\src\lib.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\getrandom-0.2.16\src\error.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\getrandom-0.2.16\src\util.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\getrandom-0.2.16\src\error_impls.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\getrandom-0.2.16\src\windows.rs
+
+C:\rustProject\Cross_domain\target\release\deps\libgetrandom-2e893f5cbb78944e.rmeta: C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\getrandom-0.2.16\src\lib.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\getrandom-0.2.16\src\error.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\getrandom-0.2.16\src\util.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\getrandom-0.2.16\src\error_impls.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\getrandom-0.2.16\src\windows.rs
+
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\getrandom-0.2.16\src\lib.rs:
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\getrandom-0.2.16\src\error.rs:
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\getrandom-0.2.16\src\util.rs:
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\getrandom-0.2.16\src\error_impls.rs:
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\getrandom-0.2.16\src\windows.rs:

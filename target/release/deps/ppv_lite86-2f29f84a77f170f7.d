@@ -1,0 +1,11 @@
+C:\rustProject\Cross_domain\target\release\deps\ppv_lite86-2f29f84a77f170f7.d: C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\ppv-lite86-0.2.21\src\lib.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\ppv-lite86-0.2.21\src\soft.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\ppv-lite86-0.2.21\src\types.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\ppv-lite86-0.2.21\src\x86_64\mod.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\ppv-lite86-0.2.21\src\x86_64\sse2.rs
+
+C:\rustProject\Cross_domain\target\release\deps\libppv_lite86-2f29f84a77f170f7.rlib: C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\ppv-lite86-0.2.21\src\lib.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\ppv-lite86-0.2.21\src\soft.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\ppv-lite86-0.2.21\src\types.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\ppv-lite86-0.2.21\src\x86_64\mod.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\ppv-lite86-0.2.21\src\x86_64\sse2.rs
+
+C:\rustProject\Cross_domain\target\release\deps\libppv_lite86-2f29f84a77f170f7.rmeta: C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\ppv-lite86-0.2.21\src\lib.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\ppv-lite86-0.2.21\src\soft.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\ppv-lite86-0.2.21\src\types.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\ppv-lite86-0.2.21\src\x86_64\mod.rs C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\ppv-lite86-0.2.21\src\x86_64\sse2.rs
+
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\ppv-lite86-0.2.21\src\lib.rs:
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\ppv-lite86-0.2.21\src\soft.rs:
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\ppv-lite86-0.2.21\src\types.rs:
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\ppv-lite86-0.2.21\src\x86_64\mod.rs:
+C:\Users\18223\.cargo\registry\src\mirrors.ustc.edu.cn-5857e57f01837ef8\ppv-lite86-0.2.21\src\x86_64\sse2.rs:

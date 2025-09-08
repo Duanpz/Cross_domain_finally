@@ -1,0 +1,5 @@
+[2m2025-09-06T02:00:18.494229Z[0m [32m INFO[0m [2mchuangshi_rmn[0m[2m:[0m Starting Chuangshi RMN for datacenter: beijing
+[2m2025-09-06T02:00:18.494299Z[0m [32m INFO[0m [2mchuangshi_rmn[0m[2m:[0m Bind address: 0.0.0.0:8002
+[2m2025-09-06T02:00:18.494310Z[0m [32m INFO[0m [2mchuangshi_rmn[0m[2m:[0m GMM address: localhost:8001
+[2m2025-09-06T02:00:18.494315Z[0m [32m INFO[0m [2mchuangshi_rmn[0m[2m:[0m Data directory: data/beijing-rmn
+[2m2025-09-06T02:00:18.813367Z[0m [32m INFO[0m [2mchuangshi_rmn[0m[2m:[0m RMN service listening on 0.0.0.0:8002

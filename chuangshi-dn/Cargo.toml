@@ -1,0 +1,27 @@
+[package]
+name = "chuangshi-dn"
+version.workspace = true
+edition.workspace = true
+
+[[bin]]
+name = "chuangshi-dn"
+path = "src/main.rs"
+
+[dependencies]
+chuangshi-common = { path = "../chuangshi-common" }
+tokio.workspace = true
+tonic.workspace = true
+prost.workspace = true
+serde.workspace = true
+bincode.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+anyhow.workspace = true
+clap.workspace = true
+uuid.workspace = true
+chrono.workspace = true
+dashmap.workspace = true
+async-trait.workspace = true
+bytes.workspace = true
+reed-solomon-erasure.workspace = true
+sha2.workspace = true

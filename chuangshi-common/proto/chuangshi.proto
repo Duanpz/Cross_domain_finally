@@ -1,0 +1,191 @@
+syntax = "proto3";
+
+package chuangshi;
+
+// GMM Service
+service GmmService {
+    rpc CreateFile(CreateFileRequest) returns (CreateFileResponse);
+    rpc GetFile(GetFileRequest) returns (GetFileResponse);
+    rpc DeleteFile(DeleteFileRequest) returns (DeleteFileResponse);
+    rpc ListDirectory(ListDirectoryRequest) returns (ListDirectoryResponse);
+    rpc UpdateNamespace(UpdateNamespaceRequest) returns (UpdateNamespaceResponse);
+    rpc ReportRmnStatus(RmnStatusReport) returns (Empty);
+}
+
+// RMN Service
+service RmnService {
+    rpc UpdateMetadata(UpdateMetadataRequest) returns (UpdateMetadataResponse);
+    rpc GetBlockMap(GetBlockMapRequest) returns (GetBlockMapResponse);
+    rpc DeleteFile(DeleteFileRequest) returns (DeleteFileResponse);
+    rpc ReportDnStatus(DnStatusReport) returns (Empty);
+}
+
+// DN Service  
+service DnService {
+    rpc WriteBlock(WriteBlockRequest) returns (WriteBlockResponse);
+    rpc ReadBlock(ReadBlockRequest) returns (ReadBlockResponse);
+    rpc DeleteBlock(DeleteBlockRequest) returns (DeleteBlockResponse);
+    rpc ReplicateBlock(ReplicateBlockRequest) returns (ReplicateBlockResponse);
+}
+
+// Common Messages
+message Empty {}
+
+ message FileMetadata {
+    string file_id = 1;
+    string path = 2;
+    uint64 size = 3;
+    int64 created_at = 4;
+    int64 modified_at = 5;
+    string owner = 6;
+    uint32 permissions = 7;
+    repeated ReplicaInfo replicas = 8;
+    bool is_complete = 9;
+
+}   
+//    uint64 block_size = 10;uint64 block_count = 11;
+    
+message ReplicaInfo {
+    string datacenter_id = 1;
+    string rmn_address = 2;
+    repeated string dn_addresses = 3;
+    bool is_primary = 4;
+    string status = 5;
+}
+
+ message BlockInfo {
+    string block_id = 1;
+    string file_id = 2;
+    uint64 index = 3;
+    uint64 size = 4;
+    bytes checksum = 5;
+    string dn_address = 6;
+    
+ }  
+
+ message ShardInfo {
+    uint32 shard_id = 1;
+    string dn_address = 2;
+    uint64 size = 3;
+    repeated bytes  checksum = 4;
+ }  
+
+// GMM Messages
+message CreateFileRequest {
+    string path = 1;
+    uint64 size = 2;
+    repeated string tags = 3;
+}
+
+message CreateFileResponse {
+    string file_id = 1;
+    string primary_dc = 2;
+    repeated string replica_dcs = 3;
+    repeated string dn_addresses = 4;
+}
+
+message GetFileRequest {
+    string path = 1;
+}
+
+message GetFileResponse {
+    FileMetadata metadata = 1;
+}
+
+message DeleteFileRequest {
+    string path = 1;
+}
+
+message DeleteFileResponse {
+    bool success = 1;
+}
+
+message ListDirectoryRequest {
+    string path = 1;
+}
+
+message ListDirectoryResponse {
+    repeated FileMetadata entries = 1;
+}
+
+message UpdateNamespaceRequest {
+    string path = 1;
+    string file_id = 2;
+    bool is_delete = 3;
+}
+
+message UpdateNamespaceResponse {
+    bool success = 1;
+}
+
+message RmnStatusReport {
+    string datacenter_id = 1;
+    string rmn_address = 2;
+    float cpu_usage = 3;
+    float memory_usage = 4;
+    float storage_usage = 5;
+    uint32 active_connections = 6;
+}
+
+// RMN Messages
+message UpdateMetadataRequest {
+    FileMetadata metadata = 1;
+}
+
+message UpdateMetadataResponse {
+    bool success = 1;
+}
+
+message GetBlockMapRequest {
+    string file_id = 1;
+}
+
+message GetBlockMapResponse {
+    repeated BlockInfo blocks = 1;
+}
+
+message DnStatusReport {
+    string dn_address = 1;
+    uint64 total_capacity = 2;
+    uint64 used_capacity = 3;
+    uint32 block_count = 4;
+    float io_load = 5;
+}
+
+// DN Messages
+message WriteBlockRequest {
+    string block_id = 1;
+    bytes data = 2;
+    bool is_replica = 3;
+}
+
+message WriteBlockResponse {
+    string block_id = 1;
+    bytes checksum = 2;
+    bool success = 3;
+}
+
+message ReadBlockRequest {
+    string block_id = 1;
+}
+
+message ReadBlockResponse {
+    bytes data = 1;
+}
+
+message DeleteBlockRequest {
+    string block_id = 1;
+}
+
+message DeleteBlockResponse {
+    bool success = 1;
+}
+
+message ReplicateBlockRequest {
+    string block_id = 1;
+    string target_dn = 2;
+}
+
+message ReplicateBlockResponse {
+    bool success = 1;
+}

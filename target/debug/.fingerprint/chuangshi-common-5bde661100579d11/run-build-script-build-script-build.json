@@ -1,0 +1,1 @@
+{"rustc":1842507548689473721,"features":"","declared_features":"","target":0,"profile":0,"path":0,"deps":[[14035896265789049626,"build_script_build",false,17047022476854430081]],"local":[{"RerunIfChanged":{"output":"debug\\build\\chuangshi-common-5bde661100579d11\\output","paths":["proto/chuangshi.proto","proto"]}}],"rustflags":[],"config":0,"compile_kind":0}

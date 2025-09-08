@@ -1,0 +1,9 @@
+[2m2025-09-06T02:00:15.416139Z[0m [32m INFO[0m [2mchuangshi_gmm[0m[2m:[0m Starting Chuangshi GMM
+[2m2025-09-06T02:00:15.416296Z[0m [32m INFO[0m [2mchuangshi_gmm[0m[2m:[0m Bind address: 0.0.0.0:8001
+[2m2025-09-06T02:00:15.416355Z[0m [32m INFO[0m [2mchuangshi_gmm[0m[2m:[0m Data directory: data/gmm
+[2m2025-09-06T02:00:15.416939Z[0m [32m INFO[0m [2mchuangshi_gmm::metadata[0m[2m:[0m Loaded 0 metadata entries
+[2m2025-09-06T02:00:15.417021Z[0m [32m INFO[0m [2mchuangshi_gmm[0m[2m:[0m GMM service listening on 0.0.0.0:8001
+[2m2025-09-06T02:02:15.444001Z[0m [33m WARN[0m [2mchuangshi_gmm::service[0m[2m:[0m Datacenter guangzhou is degraded
+[2m2025-09-06T02:02:15.444086Z[0m [33m WARN[0m [2mchuangshi_gmm::service[0m[2m:[0m Datacenter hefei is degraded
+[2m2025-09-06T02:03:15.458653Z[0m [33m WARN[0m [2mchuangshi_gmm::service[0m[2m:[0m Datacenter guangzhou is offline
+[2m2025-09-06T02:03:15.458759Z[0m [33m WARN[0m [2mchuangshi_gmm::service[0m[2m:[0m Datacenter hefei is offline
