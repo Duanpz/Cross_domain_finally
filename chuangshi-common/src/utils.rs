@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 use sha2::{Sha256, Digest};
 use uuid::Uuid;
 use chrono::{DateTime, Utc};

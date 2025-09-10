@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 use anyhow::Result;
 use clap::{Parser, Subcommand};
 use std::path::Path;
@@ -16,7 +17,7 @@ struct Cli {
     #[clap(short, long, default_value = "localhost:8001")]
     gmm_addr: String,
     
-    /// Enable debug output
+    /// Enable debug output global args
     #[clap(short = 'v', long)]
     verbose: bool,
     

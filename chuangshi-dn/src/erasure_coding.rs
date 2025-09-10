@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 use anyhow::{Result, bail};
 use reed_solomon_erasure::galois_8::ReedSolomon;
 

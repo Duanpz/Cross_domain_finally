@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 use chuangshi_common::types::FileMetadata;
 use dashmap::DashMap;
 use uuid::Uuid;

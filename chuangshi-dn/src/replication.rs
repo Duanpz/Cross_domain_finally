@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 use anyhow::Result;
 use chuangshi_common::proto::{
     dn_service_client::DnServiceClient,
