@@ -49,7 +49,7 @@ impl ChuangshiClient {
         // 获取文件信息
         let file_meta = tokio::fs::metadata(local_path).await?;
         let file_size = file_meta.len();
-        
+        print!("sssssssssssssssssss");
         // 创建进度条
         let pb = ProgressBar::new(file_size);
         pb.set_style(

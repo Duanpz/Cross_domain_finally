@@ -95,10 +95,11 @@ enum Commands {
 
 #[tokio::main]
 async fn main() -> Result<()> {
+    print!("starting client...\n");
     let cli = Cli::parse();
     print!("Client beginning\n");
     // 初始化日志
-    let log_level = if cli.verbose { "debug" } else { "info" };
+    let log_level = if cli.verbose { "debug" } else { "info" };//info 、 debug 、 error  是 日志级别（log level）
     tracing_subscriber::fmt()
         .with_env_filter(format!("chuangshi_client={}", log_level))
         .init();
@@ -113,7 +114,7 @@ async fn main() -> Result<()> {
             if !Path::new(&local_path).exists() {
                 error!("Local file not found: {}", local_path);
                 std::process::exit(1);
-            }
+            } 
             
             // 验证远程路径
             if !remote_path.starts_with("/chuangshi") {
