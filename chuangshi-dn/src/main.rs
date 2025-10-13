@@ -50,7 +50,7 @@ async fn main() -> Result<()> {
     tracing_subscriber::fmt()
         .with_env_filter(format!("chuangshi_dn={},chuangshi_common={}", log_level, log_level))
         .init();
-    
+
     info!("Starting Chuangshi DN for datacenter: {}", args.datacenter_id);
     info!("Bind address: {}", args.bind_addr);
     info!("RMN address: {}", args.rmn_addr);
@@ -83,10 +83,10 @@ async fn main() -> Result<()> {
     });
     
     // 启动存储清理任务
-    let cleanup_service = service.clone();
-    tokio::spawn(async move {
-        cleanup_service.run_storage_cleanup().await;
-    });
+    // let cleanup_service = service.clone();
+    // tokio::spawn(async move {
+    //     cleanup_service.run_storage_cleanup().await;
+    // });
     
     // 解析地址
     let addr: SocketAddr = args.bind_addr.parse()?;

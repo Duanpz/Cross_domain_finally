@@ -3,13 +3,7 @@
   "children": {
     "test": {
       "name": "test",
-      "children": {
-        "readme.md": {
-          "name": "readme.md",
-          "children": {},
-          "file_id": "87e1380b-3904-46b8-a3c4-77fb0a9cca6f"
-        }
-      },
+      "children": {},
       "file_id": null
     }
   },

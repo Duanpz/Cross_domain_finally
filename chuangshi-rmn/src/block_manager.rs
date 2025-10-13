@@ -110,4 +110,38 @@ impl BlockManager {
         self.blocks.insert(file_id, blocks.clone());
         Ok(blocks)
     }
+    pub async fn remove_block_record(&self, block_id: Uuid) -> Result<()> {
+        // 遍历所有文件的块映射，找到并删除该块
+        for mut entry in self.blocks.iter_mut() {
+            let file_id = *entry.key();
+            let blocks = entry.value_mut();
+            
+            // 查找要删除的块
+            let original_len = blocks.len();
+            blocks.retain(|b| b.block_id != block_id);
+            
+            if blocks.len() < original_len {
+                // 找到并删除了块，需要更新持久化
+                let updated_blocks = blocks.clone();
+                drop(entry); // 释放锁
+                
+                // 更新内存中的映射
+                self.blocks.insert(file_id, updated_blocks);
+                
+                // 持久化更新
+                self.save_block_map(file_id).await?;
+                
+                // 更新存储使用量（假设每个块256MB）
+                let removed_size = 256 * 1024 * 1024;
+                self.storage_used.fetch_sub(removed_size, Ordering::Relaxed);
+                
+                tracing::info!("Removed block {} from file {}", block_id, file_id);
+                return Ok(());
+            }
+        }
+        
+        // 如果没找到块，不算错误（可能已经删除）
+        tracing::debug!("Block {} not found in block manager", block_id);
+        Ok(())
+    }
 }

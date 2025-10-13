@@ -18,7 +18,7 @@ fi
 
 # 创建数据目录
 echo "Creating data directories..."
-mkdir -p data/{gmm,beijing-{rmn,dn{1,2,3}},shanghai-{rmn,dn{1,2,3}},hefei-{rmn,dn{1,2,3}},guangzhou-{rmn,dn{1,2,3}}}
+mkdir -p data/{gmm,beijing-{rmn,dn{1,2,3}},shanghai-{rmn,dn{1,2,3}}}
 mkdir -p logs
 
 # 清理旧进程
@@ -88,7 +88,8 @@ echo ""
 echo "Logs are available in the logs/ directory"
 echo ""
 echo "Example commands:"
-echo "  ./target/release/chuangshi put README.md /chuangshi/test/readme.md"
+echo "  ./target/release/chuangshi put README.md /chuangshi/test/readme.md   export MSYS_NO_PATHCONV=1"
+echo "  ./target/debug/chuangshi put README.md /chuangshi/test/readme.md"
 echo "  ./target/release/chuangshi ls /chuangshi"
 echo "  ./target/release/chuangshi get /chuangshi/test/readme.md local.md"
 echo ""

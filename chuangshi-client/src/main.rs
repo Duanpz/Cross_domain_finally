@@ -92,12 +92,10 @@ enum Commands {
     /// Show cluster status
     Status,
 }
-
+use std::io::{self, Write};
 #[tokio::main]
 async fn main() -> Result<()> {
-    print!("starting client...\n");
     let cli = Cli::parse();
-    print!("Client beginning\n");
     // 初始化日志
     let log_level = if cli.verbose { "debug" } else { "info" };//info 、 debug 、 error  是 日志级别（log level）
     tracing_subscriber::fmt()
@@ -106,7 +104,6 @@ async fn main() -> Result<()> {
     
     // 创建客户端
     let client = ChuangshiClient::new(&cli.gmm_addr).await?;
-    
     // 执行命令
     match cli.command {
         Commands::Put { local_path, remote_path, tags } => {
@@ -116,12 +113,19 @@ async fn main() -> Result<()> {
                 std::process::exit(1);
             } 
             
-            // 验证远程路径
+            //验证远程路径
+            let remote_path = remote_path
+                    .trim()
+                    .replace('／', "/")       // 全角斜杠
+                    .replace('\\', "/")       // 反斜杠
+                    .to_lowercase();          // 大小写不敏感
+
             if !remote_path.starts_with("/chuangshi") {
+                eprintln!("DEBUG: normalized path = {:?}", remote_path);
                 error!("Remote path must start with /chuangshi");
                 std::process::exit(1);
             }
-            
+
             println!("Uploading {} to {}", local_path, remote_path);
             
             match client.upload_file(&local_path, &remote_path, tags).await {

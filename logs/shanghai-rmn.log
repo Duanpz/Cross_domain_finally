@@ -1,8 +1,7 @@
-[2m2025-09-27T18:17:12.278062Z[0m [32m INFO[0m [2mchuangshi_rmn[0m[2m:[0m Starting Chuangshi RMN for datacenter: shanghai
-[2m2025-09-27T18:17:12.278132Z[0m [32m INFO[0m [2mchuangshi_rmn[0m[2m:[0m Bind address: 0.0.0.0:8012
-[2m2025-09-27T18:17:12.278503Z[0m [32m INFO[0m [2mchuangshi_rmn[0m[2m:[0m GMM address: localhost:8001
-[2m2025-09-27T18:17:12.278533Z[0m [32m INFO[0m [2mchuangshi_rmn[0m[2m:[0m Data directory: data/shanghai-rmn
-[2m2025-09-27T18:17:12.608820Z[0m [32m INFO[0m [2mchuangshi_rmn[0m[2m:[0m RMN service listening on 0.0.0.0:8012
-[2m2025-09-28T04:28:25.126507Z[0m [33m WARN[0m [2mchuangshi_rmn::service[0m[2m:[0m DN 0.0.0.0:8013 is unhealthy
-[2m2025-09-28T04:28:25.126750Z[0m [33m WARN[0m [2mchuangshi_rmn::service[0m[2m:[0m DN 0.0.0.0:8014 is unhealthy
-[2m2025-09-28T04:28:25.126799Z[0m
+[2m2025-10-13T16:09:57.253131Z[0m [32m INFO[0m [2mchuangshi_rmn[0m[2m:[0m Starting Chuangshi RMN for datacenter: shanghai
+[2m2025-10-13T16:09:57.253246Z[0m [32m INFO[0m [2mchuangshi_rmn[0m[2m:[0m Bind address: 0.0.0.0:8012
+[2m2025-10-13T16:09:57.253288Z[0m [32m INFO[0m [2mchuangshi_rmn[0m[2m:[0m GMM address: localhost:8001
+[2m2025-10-13T16:09:57.253325Z[0m [32m INFO[0m [2mchuangshi_rmn[0m[2m:[0m Data directory: data/shanghai-rmn
+[2m2025-10-13T16:09:57.570316Z[0m [32m INFO[0m [2mchuangshi_rmn[0m[2m:[0m RMN service listening on 0.0.0.0:8012
+[2m2025-10-13T16:10:15.925341Z[0m [32m INFO[0m [2mchuangshi_rmn::service[0m[2m:[0m Updating metadata for file: 12b9f774-ac85-4adc-bf27-981eae4786fa
+[2m2025-10-13T16:10:45.141064Z[0m [32m INFO[0m [2mchuangshi_rmn::service[0m[2m:[0m Getting block map for file: 12b9f774-ac85-4adc-bf27-981eae4786fa

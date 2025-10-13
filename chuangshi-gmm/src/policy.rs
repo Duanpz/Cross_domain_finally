@@ -21,7 +21,7 @@ impl PolicyEngine {
                         condition: PolicyCondition::FileTag("AI训练".to_string()),
                         action: PolicyAction::PlaceIn(vec![
                             "shanghai".to_string(),
-                            "guangzhou".to_string(),
+                            "beijing".to_string(),
                         ]),
                     },
                 ],

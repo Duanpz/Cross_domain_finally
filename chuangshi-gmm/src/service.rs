@@ -12,7 +12,7 @@ use chuangshi_common::{
 use dashmap::DashMap;
 use std::sync::Arc;
 use tokio::sync::RwLock;
-use tonic::{Request, Response, Status};
+use tonic::{transport::Channel, Request, Response, Status};
 use tracing::{info, warn, error, debug};
 use uuid::Uuid;
 use chrono::Utc;
@@ -45,8 +45,7 @@ impl GmmServiceImpl {
         let default_dcs = vec![
             ("beijing", "Beijing DC", "north", "beijing:8002"),
             ("shanghai", "Shanghai DC", "east", "shanghai:8012"),
-            ("hefei", "Hefei DC", "central", "hefei:8022"),
-            ("guangzhou", "Guangzhou DC", "south", "guangzhou:8032"),
+           
         ];
         
         for (id, name, region, rmn_addr) in default_dcs {
@@ -142,14 +141,110 @@ impl GmmServiceImpl {
     }
 
     async fn notify_rmn_create(&self, rmn_address: &str, metadata: &chuangshi_common::types::FileMetadata) -> Result<()> {
-        // TODO: 实际发送gRPC请求到RMN
         info!("Notifying RMN {} to create file {}", rmn_address, metadata.file_id);
+        
+        // 建立到RMN的连接
+        let channel = Channel::from_shared(format!("http://{}", rmn_address))?
+            .connect_timeout(std::time::Duration::from_secs(5))
+            .timeout(std::time::Duration::from_secs(10))
+            .connect()
+            .await
+            .map_err(|e| anyhow::anyhow!("Failed to connect to RMN {}: {}", rmn_address, e))?;
+        
+        let mut rmn_client = chuangshi_common::proto::rmn_service_client::RmnServiceClient::new(channel);
+        
+        // 转换元数据为protobuf格式
+        let proto_metadata = chuangshi_common::proto::FileMetadata {
+            file_id: metadata.file_id.to_string(),
+            path: metadata.path.clone(),
+            size: metadata.size,
+            created_at: metadata.created_at.timestamp(),
+            modified_at: metadata.modified_at.timestamp(),
+            owner: metadata.owner.clone(),
+            permissions: metadata.permissions,
+            replicas: metadata.replicas.iter().map(|r| chuangshi_common::proto::ReplicaInfo {
+                datacenter_id: r.datacenter_id.clone(),
+                rmn_address: r.rmn_address.clone(),
+                dn_addresses: r.dn_addresses.clone(),
+                is_primary: r.is_primary,
+                status: format!("{:?}", r.status),
+            }).collect(),
+            is_complete: metadata.is_complete,
+        };
+        
+        // 发送更新元数据请求
+        let request = Request::new(chuangshi_common::proto::UpdateMetadataRequest {
+            metadata: Some(proto_metadata),
+        });
+        
+        match rmn_client.update_metadata(request).await {
+            Ok(response) => {
+                let resp = response.into_inner();
+                if resp.success {
+                    info!("Successfully notified RMN {} to create file {}", rmn_address, metadata.file_id);
+                } else {
+                    warn!("RMN {} failed to create file {}", rmn_address, metadata.file_id);
+                    return Err(anyhow::anyhow!("RMN failed to create file"));
+                }
+            }
+            Err(e) => {
+                error!("Failed to notify RMN {} to create file {}: {}", rmn_address, metadata.file_id, e);
+                return Err(anyhow::anyhow!("Failed to notify RMN: {}", e));
+            }
+        }
+        
         Ok(())
     }
-    
+
     async fn notify_rmn_delete(&self, rmn_address: &str, file_id: Uuid) -> Result<()> {
-        // TODO: 实际发送gRPC请求到RMN
         info!("Notifying RMN {} to delete file {}", rmn_address, file_id);
+        
+        // 建立到RMN的连接
+        let channel = Channel::from_shared(format!("http://{}", rmn_address))?
+            .connect_timeout(std::time::Duration::from_secs(5))
+            .timeout(std::time::Duration::from_secs(10))
+            .connect()
+            .await
+            .map_err(|e| anyhow::anyhow!("Failed to connect to RMN {}: {}", rmn_address, e))?;
+        
+        let mut rmn_client = chuangshi_common::proto::rmn_service_client::RmnServiceClient::new(channel);
+        
+        // 首先需要获取文件路径（从元数据缓存中）
+        let file_path = if let Ok(metadata) = self.metadata_manager.get_metadata(file_id).await {
+            metadata.path
+        } else {
+            // 如果元数据已被删除，使用文件ID作为路径
+            format!("/chuangshi/deleted/{}", file_id)
+        };
+        
+        // 发送删除文件请求
+        let request = Request::new(chuangshi_common::proto::DeleteFileRequest {
+            path: file_path,
+        });
+        
+        match rmn_client.delete_file(request).await {
+            Ok(response) => {
+                let resp = response.into_inner();
+                if resp.success {
+                    info!("Successfully notified RMN {} to delete file {}", rmn_address, file_id);
+                } else {
+                    warn!("RMN {} failed to delete file {}", rmn_address, file_id);
+                    // 对于删除操作，即使RMN报告失败也继续，因为文件可能已经不存在
+                }
+            }
+            Err(e) => {
+                // 对于删除操作的错误，记录但不中断流程
+                warn!("Failed to notify RMN {} to delete file {}: {}", rmn_address, file_id, e);
+                // 如果是NOT_FOUND错误，认为删除成功
+                if e.code() == tonic::Code::NotFound {
+                    info!("File {} already deleted on RMN {}", file_id, rmn_address);
+                } else {
+                    // 其他错误可能需要重试，但这里简化处理
+                    error!("RMN {} delete notification failed, will continue: {}", rmn_address, e);
+                }
+            }
+        }
+        
         Ok(())
     }
 }

@@ -33,7 +33,6 @@ impl ChuangshiClient {
         let channel = Channel::from_shared(format!("http://{}", gmm_addr))?
             .connect()
             .await?;
-        
         Ok(Self {
             gmm_client: GmmServiceClient::new(channel),
             metadata_cache: MetadataCache::new(),
@@ -49,7 +48,6 @@ impl ChuangshiClient {
         // 获取文件信息
         let file_meta = tokio::fs::metadata(local_path).await?;
         let file_size = file_meta.len();
-        print!("sssssssssssssssssss");
         // 创建进度条
         let pb = ProgressBar::new(file_size);
         pb.set_style(
@@ -70,12 +68,11 @@ impl ChuangshiClient {
         let resp = response.into_inner();
         let file_id = Uuid::parse_str(&resp.file_id)?;
         let dn_addresses = resp.dn_addresses;
-        
         // 打开本地文件
         let mut file = File::open(local_path).await?;
         let mut buffer = vec![0u8; CHUNK_SIZE];
         let mut block_index = 0u64;
-        
+        println!("DN ready");
         // 分块上传到DN
         loop {
             let n = file.read(&mut buffer).await?;
@@ -88,10 +85,12 @@ impl ChuangshiClient {
             
             // 选择DN（简单轮询）
             let dn_addr = &dn_addresses[block_index as usize % dn_addresses.len()];
-            
+                // ① 打日志：要发多少字节到哪个 DN
+            println!("[Client] sending block {} ({} bytes) to {}", block_id, n, dn_addr);
             // 上传块到DN
             self.upload_block_to_dn(dn_addr, block_id, block_data).await?;
-            
+             // ② 打日志：DN 返回成功
+            println!("[Client] block {} uploaded ok", block_id);
             pb.inc(n as u64);
             block_index += 1;
         }
@@ -107,7 +106,7 @@ impl ChuangshiClient {
         let metadata = self.get_file_info(remote_path).await?;
         
         // 创建进度条
-        let pb = ProgressBar::new(metadata.size);
+        let pb = ProgressBar:: new(metadata.size);
         pb.set_style(
             ProgressStyle::default_bar()
                 .template("{spinner:.green} [{bar:40.cyan/blue}] {bytes}/{total_bytes} ({eta})")
@@ -187,31 +186,60 @@ impl ChuangshiClient {
         Ok(metadata)
     }
     
+    // async fn upload_block_to_dn(
+    //     &self,
+    //     dn_addr: &str,
+    //     block_id: Uuid,
+    //     data: Vec<u8>,
+    // ) -> Result<()> {
+    //     let channel = Channel::from_shared(format!("http://{}", dn_addr))?
+    //         .connect()
+    //         .await?;
+        
+    //     let mut client = DnServiceClient::new(channel);
+        
+    //     let response = client.write_block(Request::new(WriteBlockRequest {
+    //         block_id: block_id.to_string(),
+    //         data,
+    //         is_replica: false,
+    //     })).await?;
+        
+    //     let resp = response.into_inner();
+    //     if !resp.success {
+    //         bail!("Failed to write block to DN");
+    //     }
+        
+    //     Ok(())
+    // }
     async fn upload_block_to_dn(
         &self,
         dn_addr: &str,
         block_id: Uuid,
         data: Vec<u8>,
     ) -> Result<()> {
+        // ① 连接前
+        println!("[Client] connecting to DN at http://{}", dn_addr);
+
         let channel = Channel::from_shared(format!("http://{}", dn_addr))?
             .connect()
             .await?;
-        
+        // ② 连接成功
+        println!("[Client] connected to DN, now writing block {}", block_id);
+
         let mut client = DnServiceClient::new(channel);
-        
-        let response = client.write_block(Request::new(WriteBlockRequest {
-            block_id: block_id.to_string(),
-            data,
-            is_replica: false,
-        })).await?;
-        
-        let resp = response.into_inner();
-        if !resp.success {
-            bail!("Failed to write block to DN");
-        }
-        
+        let response = client
+            .write_block(Request::new(WriteBlockRequest {
+                block_id: block_id.to_string(),
+                data,
+                is_replica: false,
+            }))
+            .await?;
+
+        // ③ 收到响应
+        println!("[Client] write_block returned: success={}", response.into_inner().success);
         Ok(())
     }
+
     
     async fn download_block_from_dn(
         &self,

@@ -141,9 +141,72 @@ impl RmnServiceImpl {
     }
     
     async fn notify_dn_delete(&self, dn_address: &str, block_id: Uuid) -> Result<()> {
-        // TODO: 发送gRPC请求到DN
         info!("Notifying DN {} to delete block {}", dn_address, block_id);
+        
+        // 建立到DN的连接
+        let channel = Channel::from_shared(format!("http://{}", dn_address))?
+            .connect_timeout(std::time::Duration::from_secs(5))
+            .timeout(std::time::Duration::from_secs(10))
+            .connect()
+            .await
+            .map_err(|e| anyhow::anyhow!("Failed to connect to DN {}: {}", dn_address, e))?;
+        
+        let mut dn_client = chuangshi_common::proto::dn_service_client::DnServiceClient::new(channel);
+        
+        // 构建删除块请求
+        let request = Request::new(chuangshi_common::proto::DeleteBlockRequest {
+            block_id: block_id.to_string(),
+        });
+        
+        // 发送删除请求
+        match dn_client.delete_block(request).await {
+            Ok(response) => {
+                let resp = response.into_inner();
+                if resp.success {
+                    info!("Successfully notified DN {} to delete block {}", dn_address, block_id);
+                    
+                    // 更新块管理器，移除块记录
+                    if let Err(e) = self.block_manager.remove_block_record(block_id).await {
+                        warn!("Failed to remove block record from local cache: {}", e);
+                    }
+                } else {
+                    warn!("DN {} reported failure when deleting block {}", dn_address, block_id);
+                    // 对于删除失败，不中断整体流程，因为块可能已经不存在
+                }
+            }
+            Err(e) => {
+                // 处理不同的错误情况
+                match e.code() {
+                    tonic::Code::NotFound => {
+                        // 块不存在，认为删除成功
+                        info!("Block {} already deleted on DN {}", block_id, dn_address);
+                    }
+                    tonic::Code::Unavailable | tonic::Code::DeadlineExceeded => {
+                        // DN不可用或超时，记录错误但继续
+                        error!("DN {} is unavailable or timed out, block {} may not be deleted", dn_address, block_id);
+                        // 可以将此块加入待重试队列
+                        self.add_to_retry_queue(dn_address, block_id).await;
+                    }
+                    _ => {
+                        // 其他错误
+                        error!("Failed to notify DN {} to delete block {}: {}", dn_address, block_id, e);
+                    }
+                }
+            }
+        }
+        
         Ok(())
+    }
+
+    // 辅助函数：将失败的删除操作加入重试队列
+    async fn add_to_retry_queue(&self, dn_address: &str, block_id: Uuid) {
+        // 这里可以实现一个重试机制
+        // 例如：将失败的删除请求存储起来，定期重试
+        warn!("Adding block {} on DN {} to retry queue", block_id, dn_address);
+        
+        // 简单实现：存储到内存队列中
+        // 实际生产环境可能需要持久化到磁盘
+        // self.retry_queue.push((dn_address.to_string(), block_id));
     }
 }
 
